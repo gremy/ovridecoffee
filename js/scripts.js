@@ -507,7 +507,7 @@ window.initializeMaps = function(){
                                 address.forEach(function(address){
                                     var markerGeoCoder;
 
-                                    markerImage = {url: window.mr_variant == undefined ? 'img/mapmarker.png' : '../img/mapmarker.png', size: new google.maps.Size(100,100), scaledSize: new google.maps.Size(100,100)};
+                                    markerImage = {url: window.mr_variant == undefined ? 'img/mapmarker.png' : '../img/mapmarker.png', size: new google.maps.Size(62,70), scaledSize: new google.maps.Size(62,70)};
                                     if(/(\-?\d+(\.\d+)?),\s*(\-?\d+(\.\d+)?)/.test(address) ){
                                         var latlong = address.split(','),
                                         marker = new google.maps.Marker({
