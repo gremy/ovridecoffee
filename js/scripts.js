@@ -132,61 +132,15 @@ $(document).ready(function() {
         $(this).toggleClass('toggle-widget-handle');
     });
 
-    // Twitter Feed
-
-    $('.tweets-feed').each(function(index) {
-        $(this).attr('id', 'tweets-' + index);
-    }).each(function(index) {
-
-        function handleTweets(tweets) {
-            var x = tweets.length;
-            var n = 0;
-            var element = document.getElementById('tweets-' + index);
-            var html = '<ul class="slides">';
-            while (n < x) {
-                html += '<li>' + tweets[n] + '</li>';
-                n++;
-            }
-            html += '</ul>';
-            element.innerHTML = html;
-            return html;
-        }
-
-        twitterFetcher.fetch($('#tweets-' + index).attr('data-widget-id'), '', 5, true, true, true, '', false, handleTweets);
-
-    });
-
     // Instagram Feed
 
-    jQuery.fn.spectragram.accessData = {
+    var ovrideFeed = new Instafeed({
+        get: 'user',
+        userId: '5476865394',
+        limit: 12,
         accessToken: '5476865394.21039fa.69eeef440f7d4407aefcdbb6818f7304',
-        clientID: '21039faf00034f17b81e492475c43d07'
-    };
-
-    $('.instafeed ul').spectragram('getUserFeed', {
-        query: 'ovridecoffee',
-        max: 12
     });
-
-    // Image Sliders
-
-    $('.slider-all-controls').flexslider({});
-    $('.slider-paging-controls').flexslider({
-        animation: "slide",
-        directionNav: false
-    });
-    $('.slider-arrow-controls').flexslider({
-        controlNav: false
-    });
-    $('.slider-thumb-controls .slides li').each(function() {
-        var imgSrc = $(this).find('img').attr('src');
-        $(this).attr('data-thumb', imgSrc);
-    });
-    $('.slider-thumb-controls').flexslider({
-        animation: "slide",
-        controlNav: "thumbnails",
-        directionNav: true
-    });
+    ovrideFeed.run();
 
     // Interact with Map once the user has clicked (to prevent scrolling the page = zooming the map
 
@@ -445,22 +399,6 @@ $(window).on('load', function(){
     if ($('nav').hasClass('bg-dark')) {
         $('.nav-container').addClass('bg-dark');
     }
-
-    // Initialize twitter feed
-
-    var setUpTweets = setInterval(function() {
-        if ($('.tweets-slider').find('li.flex-active-slide').length) {
-            clearInterval(setUpTweets);
-            return;
-        } else {
-            if ($('.tweets-slider').length) {
-                $('.tweets-slider').flexslider({
-                    directionNav: false,
-                    controlNav: false
-                });
-            }
-        }
-    }, 500);
 
     mr_firstSectionHeight = $('.main-container section:nth-of-type(1)').outerHeight(true);
 
