@@ -1,0 +1,18 @@
+{
+  "name": "ovride.coffee",
+  "version": "0.0.1",
+  "description": "Ovride Specialty Coffee",
+  "dependencies": {
+    "instafeed.js": "^1.4.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gremy/ovridecoffee.git"
+  },
+  "author": "Emanuel Greucean",
+  "license": "GPL-2.0"
+}
