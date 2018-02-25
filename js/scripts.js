@@ -137,7 +137,8 @@ $(document).ready(function() {
     var ovrideFeed = new Instafeed({
         get: 'user',
         userId: '5476865394',
-        limit: 12,
+        limit: 8,
+        resolution: 'standard_resolution',
         accessToken: '5476865394.21039fa.69eeef440f7d4407aefcdbb6818f7304',
     });
     ovrideFeed.run();
